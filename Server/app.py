@@ -8,6 +8,5 @@ socketio = SocketIO(app)
 def handle_test(message):
     send(message)
 
-
 if __name__ == '__main__':
     socketio.run(app)
