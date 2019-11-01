@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+    api:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+            network: host
+        ports:
+            - 5050:5000
+        volumes:
+            - ./backend:/usr/src/app
+    
+    angular:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+            network: host
+        depends_on:
+            - api
+        ports:
+            - 8080:4200
+        volumes:
+            - ./frontend/frontend:/usr/src/app
