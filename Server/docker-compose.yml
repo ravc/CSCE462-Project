@@ -10,6 +10,7 @@ services:
             - 5050:5000
         volumes:
             - ./backend:/usr/src/app
+        restart: unless-stopped
     
     angular:
         build:
@@ -22,3 +23,4 @@ services:
             - 8080:4200
         volumes:
             - ./frontend/frontend:/usr/src/app
+        restart: unless-stopped

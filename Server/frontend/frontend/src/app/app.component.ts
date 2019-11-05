@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestService } from './TestService.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { Component } from '@angular/core';
     <h2>Here are some links to help you start: </h2>
     <ul>
       <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+        <button (click)="sendMessage()">Send Message</button>
       </li>
       <li>
         <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
@@ -28,5 +29,21 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'Frontend';
+    title = 'Frontend';
+    constructor(private test: TestService) {}
+    
+    ngOnInit() {
+        this.test.messages.subscribe(msg => {
+            console.log(msg);
+            this.title=msg;
+        })
+    }
+    
+    ngOnDestroy() {
+        this.test.messages.unsubscribe();
+    }
+    
+    sendMessage() {
+        this.test.testConnection('The test');
+    }
 }
