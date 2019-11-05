@@ -4,7 +4,7 @@ import { TestService } from '../SocketServices/TestService.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: []
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
     constructor(private test: TestService) {}
