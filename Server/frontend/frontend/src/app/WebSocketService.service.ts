@@ -18,6 +18,9 @@ export class WebSocketService {
         
         let observable = new Observable(observer => {
             this.socket.on('connect', (data) => {
+                if (data == true) {
+                    console.log('Connection was made');
+                }
                 observer.next(data);
             })
             
