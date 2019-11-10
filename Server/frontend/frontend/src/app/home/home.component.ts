@@ -2,10 +2,31 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'home',
-  template: 'home Component',
-  styles: ['h1 { font-weight: normal; }']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 
 export class HomeComponent {
+    plants: Section[] = [
+        {
+            name: 'Plant 1',
+            ip: '192.268.0.1'
+        },
+        {
+            name: 'Plant 2',
+            ip: '192.268.0.2'
+        },
+        {
+            name: 'Plant 3',
+            ip: '192.268.0.3'
+        },
+        {
+            name: 'Plant 4',
+            ip: '192.268.0.4'
+        }
+    ];
     
+    test(p) {
+        console.log(p)
+    }
 }

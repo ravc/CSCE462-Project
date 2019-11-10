@@ -5,34 +5,7 @@ import { ChartComponent } from '../charts/charts.component';
 import { PlantComponent } from '../plants/plants.component';
 
 
-const routes: Routes = [
-    {
-        path: 'home',
-        component: HomeComponent
-    },
-    
-    {
-        path: 'plants',
-        component: PlantComponent
-    },
-    
-    {
-        path: 'charts',
-        component: ChartComponent
-    },
-    
-    {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    },
-    
-    {
-        path: '**',
-        redirectTo: '/home',
-        pathMatch: 'full'
-    }
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

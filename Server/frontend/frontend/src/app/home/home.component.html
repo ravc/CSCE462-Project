@@ -1,0 +1,13 @@
+<div class="row disp">
+  <mat-card class="plant-card">
+    <mat-card-content>
+      <mat-action-list>
+        <h3 mat-subheader>Plants</h3>
+        <mat-list-item *ngFor="let plant of plants" (click)="test(plant)">
+          <h4 mat-line>{{plant.name}}</h4>
+          <p mat-line> {{plant.ip}} </p>
+        </mat-list-item>
+      </mat-action-list>
+    </mat-card-content>
+  </mat-card>
+</div>

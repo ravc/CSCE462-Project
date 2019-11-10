@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TestService } from '../SocketServices/TestService.service';
-// import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-root',

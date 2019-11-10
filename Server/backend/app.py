@@ -1,5 +1,8 @@
 from flask import Flask, request
 from flask_socketio import SocketIO, send, emit
+from pymongo import MongoClient
+
+client = MongoClient('mongodb://root:example@mongo')
 
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
