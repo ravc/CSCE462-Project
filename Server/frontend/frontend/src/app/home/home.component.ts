@@ -26,6 +26,8 @@ export class HomeComponent {
         }
     ];
     
+    activePlant = this.plants[0];
+    
     test(p) {
         console.log(p)
     }

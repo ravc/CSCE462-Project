@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatToolbarModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTabsModule
   ],
   providers: [WebSocketService, TestService],
   bootstrap: [AppComponent]

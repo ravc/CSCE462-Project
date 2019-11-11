@@ -1,8 +1,10 @@
-.plant-card {
-    max-width: 200px;
-    margin-top: 20px;
+.plants {
+    margin: 10px;
 }
 
-.disp {
-  display: flex;
+.flex-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
