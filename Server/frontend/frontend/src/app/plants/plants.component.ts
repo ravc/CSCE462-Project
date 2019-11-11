@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'plants',
-  template: 'plants Component',
-  styles: ['h1 { font-weight: normal; }']
+  templateUrl: 'plants.component.html',
+  styleUrls: ['plants.component.css']
 })
 
-export class PlantComponent {
-    
+export class PlantComponent implements OnInit {
+    @Input() plant;
 }
