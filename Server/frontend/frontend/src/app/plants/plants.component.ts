@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['plants.component.css']
 })
 
-export class PlantComponent implements OnInit {
+export class PlantComponent {
     @Input() plant;
 }
