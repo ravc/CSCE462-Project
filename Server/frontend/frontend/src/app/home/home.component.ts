@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-    plants: Section[] = [
+    plants = [
         {
             name: 'Plant 1',
             ip: '192.268.0.1'
