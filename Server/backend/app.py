@@ -44,9 +44,9 @@ def get_chart_data(plant_name):
     print({'moisture': moisture, 'photo': photo, 'temp': temp, 'humidity': humidity}, file=sys.stderr)
     return jsonify({'moisture': moisture, 'photo': photo, 'temp': temp, 'humidity': humidity})
     
-@app.route('/chart_data')
-def get_chart_data():
-    all_data = collection.find({})
+@app.route('/chart_data/<plant>')
+def get_chart_data(plant):
+    all_data = collection.find({'name': plant})
     
     moisture = []
     photo = []
@@ -77,7 +77,13 @@ def get_chart_data():
 def get_plants(msg):
     all_data = collection.find({}).distinct('name')
     
-    data = [(plant, arduinos[plant]) for plant in all_data]
+    data = []
+    
+    for plant in all_data:
+        if plant in arduinos:
+            data.append((plant, arduinos[plant]))
+        else:
+            data.append((plant, ""))
     
     emit('all_plants', data)
     
