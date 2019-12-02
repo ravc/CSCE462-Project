@@ -237,56 +237,49 @@ void setup() {
   
   Serial.print("Connecting to WIFI");
 
-//  while (WiFi.status() != WL_CONNECTED) {
-//    delay(1000);
-//    Serial.print(".");
-//  }
-//
-//  Serial.println("\n");
-//  Serial.println("Connected!!!");
-//  Serial.println("IP Address:\t");
-//  Serial.println(WiFi.localIP());
-//
-//  Server.on("/heat_override", HTTP_GET, []() {
-//    handlePadOverride();
-//  });
-//  Server.on("/heat_override", HTTP_OPTIONS, []() {
-//    Server.sendHeader("Access-Control-Allow-Origin", "*");
-//    Server.send(204);
-//  });
-//  
-//  Server.on("/solenoid_override", HTTP_GET, []() {
-//    handleSolenoidOverride();
-//  });
-//  Server.on("/solenoid_override", HTTP_OPTIONS, []() {
-//    Server.sendHeader("Access-Control-Allow-Origin", "*");
-//    Server.send(204);
-//  });
-//  
-//  Server.on("/light_override", HTTP_GET, []() {
-//    handleLightOverride();
-//  });
-//  Server.on("/light_override", HTTP_OPTIONS, []() {
-//    Server.sendHeader("Access-Control-Allow-Origin", "*");
-//    Server.send(204);
-//  });
-//
-//  Server.begin();
-//
-//  connectToServer();
-//  
-//  PT_INIT(&webServer);
-//  PT_INIT(&sensors);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+
+  Serial.println("\n");
+  Serial.println("Connected!!!");
+  Serial.println("IP Address:\t");
+  Serial.println(WiFi.localIP());
+
+  Server.on("/heat_override", HTTP_GET, []() {
+    handlePadOverride();
+  });
+  Server.on("/heat_override", HTTP_OPTIONS, []() {
+    Server.sendHeader("Access-Control-Allow-Origin", "*");
+    Server.send(204);
+  });
+  
+  Server.on("/solenoid_override", HTTP_GET, []() {
+    handleSolenoidOverride();
+  });
+  Server.on("/solenoid_override", HTTP_OPTIONS, []() {
+    Server.sendHeader("Access-Control-Allow-Origin", "*");
+    Server.send(204);
+  });
+  
+  Server.on("/light_override", HTTP_GET, []() {
+    handleLightOverride();
+  });
+  Server.on("/light_override", HTTP_OPTIONS, []() {
+    Server.sendHeader("Access-Control-Allow-Origin", "*");
+    Server.send(204);
+  });
+
+  Server.begin();
+
+  connectToServer();
+  
+  PT_INIT(&webServer);
+  PT_INIT(&sensors);
 }
 
 void loop() {
-//  serverThread(&webServer);
-//  sensorThread(&sensors, 300000);
-digitalWrite(D4, HIGH);
-digitalWrite(D5, HIGH);
-delay(2000);
-digitalWrite(D4, LOW);
-digitalWrite(D5, LOW);
-delay(2000);
-
+  serverThread(&webServer);
+  sensorThread(&sensors, 300000);
 }
