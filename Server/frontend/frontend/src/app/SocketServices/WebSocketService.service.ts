@@ -21,11 +21,14 @@ export class WebSocketService {
                 if (data == true) {
                     console.log('Connection was made');
                 }
-                observer.next(data);
             })
             
-            this.socket.on('test', (data) => {
-                observer.next(data);
+            this.socket.on('chart_data', (data) => {
+                observer.next({'chart': data});
+            })
+            
+            this.socket.on('all_plants', (data) => {
+                observer.next({'plants': data});
             })
             
             return () => {
