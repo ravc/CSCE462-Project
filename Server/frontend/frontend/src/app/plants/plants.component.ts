@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'plants',
@@ -8,4 +9,24 @@ import { Component, Input } from '@angular/core';
 
 export class PlantComponent {
     @Input() plant;
+    
+    constructor(private httpClient: HttpClient) {}
+    
+    changeSolenoidState() {
+        this.httpClient.get<String>("http://" + this.plant[1] + "/solenoid_override").subscribe(data => {
+            console.log(data);
+        })
+    }
+    
+    changeLightState() {
+        this.httpClient.get("http://" + this.plant[1] + "/light_override").subscribe(data => {
+            console.log(data);
+        })
+    }
+    
+    changeHeatPadState() {
+        this.httpClient.get("http://" + this.plant[1] + "/heat_override").subscribe(data => {
+            console.log(data);
+        })
+    }
 }

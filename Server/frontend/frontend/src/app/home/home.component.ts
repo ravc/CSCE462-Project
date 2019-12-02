@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlantService } from '../SocketServices/PlantService.service';
 
 @Component({
   selector: 'home',
@@ -7,28 +8,24 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent {
-    plants = [
-        {
-            name: 'Plant 1',
-            ip: '192.268.0.1'
-        },
-        {
-            name: 'Plant 2',
-            ip: '192.268.0.2'
-        },
-        {
-            name: 'Plant 3',
-            ip: '192.268.0.3'
-        },
-        {
-            name: 'Plant 4',
-            ip: '192.268.0.4'
-        }
-    ];
+    plants = [''];
+    activePlant = [''];
     
-    activePlant = this.plants[0];
+    constructor(private plantService: PlantService) {}
     
-    test(p) {
-        console.log(p)
+    ngOnInit() {
+        this.plantService.data.subscribe(data => {
+            if (typeof data !== 'undefined' && 'plants' in data) {
+                this.setPlants(data['plants']);
+            }
+        });
+        
+        this.plantService.getPlants();
+    }
+    
+    setPlants(data) {
+        console.log(data);
+        this.plants = data;
+        this.activePlant = data[0];
     }
 }

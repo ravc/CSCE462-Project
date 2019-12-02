@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { WebSocketService } from '../SocketServices/WebSocketService.service';
-import { TestService } from '../SocketServices/TestService.service';
+import { ChartService } from '../SocketServices/ChartService.service';
+import { PlantService } from '../SocketServices/PlantService.service';
 
 import { HomeComponent } from '../home/home.component';
 import { ChartComponent } from '../charts/charts.component';
@@ -17,13 +18,18 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { HighchartsChartComponent } from 'highcharts-angular';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ChartComponent,
-    PlantComponent
+    PlantComponent,
+    HighchartsChartComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +39,11 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatToolbarModule,
     MatCardModule,
     MatGridListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [WebSocketService, TestService],
+  providers: [WebSocketService, ChartService, PlantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

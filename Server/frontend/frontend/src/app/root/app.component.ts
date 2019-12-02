@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TestService } from '../SocketServices/TestService.service';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +6,11 @@ import { TestService } from '../SocketServices/TestService.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    constructor(private test: TestService) {}
+    constructor() {}
     
     ngOnInit() {
-        this.test.messages.subscribe(msg => {
-            console.log(msg);
-        })
     }
     
     ngOnDestroy() {
-        this.test.messages.unsubscribe();
-    }
-    
-    sendMessage() {
-        this.test.testConnection('The test');
     }
 }
