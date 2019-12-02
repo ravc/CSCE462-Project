@@ -1,0 +1,46 @@
+<div class="flex-row">
+  <div class="flex-col">
+    <div>
+      <highcharts-chart
+        [Highcharts] = "moistureChart" 
+        [options] = "moistureOptions" 
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFromInput"
+        [oneToOne]="true"
+        style = "width: 100%; height: 100%; display: block;">
+      </highcharts-chart>
+    </div>
+    <div>
+      <highcharts-chart
+        [Highcharts] = "photoChart" 
+        [options] = "photoOptions" 
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFromInput"
+        [oneToOne]="true"
+        style = "width: 100%; height: 100%; display: block;">
+      </highcharts-chart>
+    </div>
+  </div> 
+  <div class="flex-col">
+    <div>
+      <highcharts-chart
+        [Highcharts] = "tempChart" 
+        [options] = "tempOptions" 
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFromInput"
+        [oneToOne]="true"
+        style = "width: 100%; height: 100%; display: block;">
+      </highcharts-chart>
+    </div>
+    <div>
+      <highcharts-chart
+        [Highcharts] = "humidityChart" 
+        [options] = "humidityOptions" 
+        [callbackFunction]="chartCallback"
+        [(update)]="updateFromInput"
+        [oneToOne]="true"
+        style = "width: 100%; height: 100%; display: block;">
+      </highcharts-chart>
+    </div>
+  </div>
+</div>

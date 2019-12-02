@@ -6,10 +6,13 @@ services:
             context: ./backend
             dockerfile: Dockerfile
             network: host
+        depends_on:
+            - mongo
         ports:
             - 5050:5000
         volumes:
             - ./backend:/usr/src/app
+        restart: unless-stopped
     
     angular:
         build:
@@ -22,3 +25,11 @@ services:
             - 8080:4200
         volumes:
             - ./frontend/frontend:/usr/src/app
+        restart: unless-stopped
+        
+    mongo:
+        image: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example
+        restart: unless-stopped

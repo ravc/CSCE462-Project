@@ -1,0 +1,10 @@
+<mat-card class="plant-card">
+  <mat-card-header>
+    <mat-card-title>{{plant[0]}} @ {{plant[1]}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p mat-line>Change Heat Pad State: <button mat-button (click)="changeHeatPadState()">Update</button></p>
+    <p mat-line>Change Solenoid State: <button mat-button (click)="changeSolenoidState()">Update</button></p>
+    <p mat-line>Change Light State: <button mat-button (click)="changeLightState()">Update</button></p>
+  </mat-card-content>
+</mat-card>

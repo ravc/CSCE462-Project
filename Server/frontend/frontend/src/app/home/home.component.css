@@ -1,0 +1,9 @@
+.plants {
+    margin: 10px;
+}
+
+.flex-container {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}

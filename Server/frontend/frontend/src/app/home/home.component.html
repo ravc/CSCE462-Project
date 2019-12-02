@@ -1,0 +1,9 @@
+<nav mat-tab-nav-bar mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4 plants">
+  <a mat-tab-link *ngFor="let plant of plants"
+    (click)="activePlant = plant"
+    [active]="activePlant == plant">{{plant[0]}}</a>
+</nav>
+<div class="flex-container">
+  <plants [plant]="activePlant"></plants>
+  <charts [plant]="activePlant"></charts>
+<div>
