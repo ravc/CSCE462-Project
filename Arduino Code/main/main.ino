@@ -77,6 +77,8 @@ void sendSensorData(String endPoint, int sensor) {
 
 void sendTempAndHumidityData() {
   digitalWrite(heatSensorPin, HIGH);
+  delay(1000);
+  
   HTTPClient http;
   
   http.begin(server + ID + "/temp");
