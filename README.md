@@ -7,4 +7,5 @@
  - Change the ssid and password to the correct wifi and the server ip to the ip of the machine that will be running the server
 4) cd into the server folder
 5) Run ```docker-compose up``` or ```docker-compose up -d```
-6) Done
+6) Upload the editied arduino code to the arduino
+7) Done
