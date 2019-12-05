@@ -8,9 +8,9 @@
 #include <ESP8266WebServer.h>
 
 //Communication constants
-const char* ssid = "ssid_here";
-const char* password = "wifi_password_here";
-const char* server = "http://192.168.0.216:5050/arduino";
+const char* ssid = "V20_d831";
+const char* password = "CaptainNem0";
+const char* server = "http://192.168.43.231:5050/arduino";
 String ID = "/plant_1";
 #define DHTTYPE DHT22
 #define DHTPIN D6
@@ -174,18 +174,18 @@ void shouldTurnOnLight() {
 
 void handleRelayStates() {
   if (solenoidState) {
-    digitalWrite(SolenoidRelayPin, HIGH);
-  } else {
     digitalWrite(SolenoidRelayPin, LOW);
+  } else {
+    digitalWrite(SolenoidRelayPin, HIGH);
   }
 
   if (heatPadState) {
-    digitalWrite(heatPadRelayPin, HIGH);
-    digitalWrite(heatPadRelayPin2, HIGH);
-    
-  } else {
     digitalWrite(heatPadRelayPin, LOW);
     digitalWrite(heatPadRelayPin2, LOW);
+    
+  } else {
+    digitalWrite(heatPadRelayPin, HIGH);
+    digitalWrite(heatPadRelayPin2, HIGH);
   }
 }
 
@@ -232,8 +232,6 @@ void setup() {
   pinMode(D3, OUTPUT);
   pinMode(D4, OUTPUT);
   pinMode(D5, OUTPUT);
-
-  digitalWrite(D1, HIGH);
   
   dht.begin();
   
