@@ -18,12 +18,6 @@ export class PlantComponent {
         })
     }
     
-    changeLightState() {
-        this.httpClient.get("http://" + this.plant[1] + "/light_override").subscribe(data => {
-            console.log(data);
-        })
-    }
-    
     changeHeatPadState() {
         this.httpClient.get("http://" + this.plant[1] + "/heat_override").subscribe(data => {
             console.log(data);
